@@ -439,21 +439,23 @@
 
 .sticker-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 per row by default (desktop/tablet) */
+    grid-template-columns: repeat(2, 1fr);
     gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
 }
 
 .sticker {
-    width: 400px;
-    height: 400px;
+    width: 100%; /* Changed to relative width */
+    aspect-ratio: 1; /* Maintains square shape */
     position: relative;
     transition: transform 0.3s ease;
     animation: bounce 3s infinite;
     animation-delay: calc(var(--delay) * 0.2s);
     margin: 0 auto;
+    max-width: 400px; /* Maximum size limit */
 }
 
 .sticker img {
@@ -475,32 +477,30 @@
 /* Tablet */
 @media (max-width: 1200px) {
     .sticker {
-        width: 300px;
-        height: 300px;
+        max-width: 300px;
     }
 }
 
 /* Mobile */
 @media (max-width: 768px) {
     .sticker-container {
-        grid-template-columns: 1fr; /* 1 per row on mobile */
+        grid-template-columns: 1fr;
         gap: 30px;
     }
     
     .sticker {
-        width: 280px;
-        height: 280px;
+        max-width: 280px;
     }
 }
 
 /* Small Mobile */
 @media (max-width: 480px) {
     .sticker {
-        width: 250px;
-        height: 250px;
+        max-width: 250px;
     }
     .sticker-container {
         gap: 20px;
+        padding: 0 10px;
     }
 }
     </style>
